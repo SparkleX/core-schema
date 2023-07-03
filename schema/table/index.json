@@ -3,6 +3,9 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
+		"name": {
+			"type": "string"
+		},
 		"fatherNode": {
 			"type": "string"
 		},
@@ -15,10 +18,23 @@
 				}
 			}
 		},
+		"fieldsOrder": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"indexes": {
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "./TableIndex.json"
+			}
+			
+		},
 		"transient": {
 			"type": "boolean"
 		},
-		"tables": {
+		"primaryKey": {
 			"type": "array",
 			"items": {
 				"type": "string"
