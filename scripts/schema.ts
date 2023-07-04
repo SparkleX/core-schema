@@ -16,7 +16,6 @@ export async function generateSchema() {
 		try {
 			await generateSchemaFile(filename);
 		} catch (error) {
-			console.error(filename);
 			console.error(error);
 			throw error;
 		}
@@ -33,14 +32,7 @@ async function generateSchemaFile(shcmeaFile) {
 		tsFilename = schema.title;
 	}
 	tsFilename = camelCase(tsFilename, { pascalCase: true });
-	const script = await compile(schema, tsFilename, {
-		cwd: schemaDirname,
-		bannerComment:
-			"/* eslint-disable prettier/prettier */\n/* tslint:disable */\n/* Generated, DO NOT MODIFY BY HAND */\n",
-		style: {
-			useTabs: true
-		}
-	});
+	const script = "";
 	fs.mkdirSync(outputSchemaFolder, { recursive: true });
 	fs.writeFileSync(`${outputSchemaFolder}/${tsFilename}.ts`, script);
 }
