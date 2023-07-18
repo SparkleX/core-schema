@@ -8,6 +8,12 @@
         },
 		"post": {
 			"$ref": "./MethodBinding.json"
+		},
+		"put": {
+			"$ref": "./MethodBinding.json"
+		},
+		"delete": {
+			"$ref": "./MethodBinding.json"
 		}
 	},
 	"required": []
