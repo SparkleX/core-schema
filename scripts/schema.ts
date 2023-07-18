@@ -32,7 +32,14 @@ async function generateSchemaFile(shcmeaFile) {
 		tsFilename = schema.title;
 	}
 	tsFilename = camelCase(tsFilename, { pascalCase: true });
-	const script = "";
+	const script = await compile(schema, tsFilename, {
+		cwd: schemaDirname,
+		bannerComment:
+			"/* eslint-disable prettier/prettier */\n/* tslint:disable */\n/* Generated, DO NOT MODIFY BY HAND */\n",
+		style: {
+			useTabs: true
+		}
+	});
 	fs.mkdirSync(outputSchemaFolder, { recursive: true });
 	fs.writeFileSync(`${outputSchemaFolder}/${tsFilename}.ts`, script);
 }
