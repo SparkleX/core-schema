@@ -1,0 +1,2 @@
+git push https://github.com/SparkleX/dcmm-schema
+git push https://gitee.com/SparkleX/dcmm-schema
